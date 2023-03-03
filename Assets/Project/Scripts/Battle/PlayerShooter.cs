@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SlimeRPG.Battle
 {
-    public class Shooter : MonoBehaviour
+    public class PlayerShooter : MonoBehaviour
     {
         [SerializeField] private Projectile _projectile;
         [SerializeField] private Transform _initialPoint;
@@ -29,8 +29,12 @@ namespace SlimeRPG.Battle
         {
             do
             {
-                ReturnToStart();
+                ShowProjectile();
+
                 await Shoot();
+
+                ReturnToStart();
+                HideProjectile();
             } 
             while (true);
         }
@@ -42,12 +46,23 @@ namespace SlimeRPG.Battle
 
         private Vector3 FindEnemyPosition()
         {
-            return default;
+            //return default;
+            return new Vector3(-20, 0, 0);
         }
 
         private void ReturnToStart()
         {
             _projectile.transform.position = _initialPoint.position;
+        }
+
+        private void HideProjectile()
+        {
+            _projectile.gameObject.SetActive(false);
+        }
+
+        private void ShowProjectile()
+        {
+            _projectile.gameObject.SetActive(true);
         }
     }
 }
