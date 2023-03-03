@@ -1,13 +1,10 @@
-﻿using SlimeRPG.Data;
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace SlimeRPG.Entities
 {
-    public class Health : MonoBehaviour
+    public abstract class Health : MonoBehaviour
     {
-        [SerializeField] private InitialAbilityValue _health;
-
         public event Action<float> OnCurrentChanged;
         public event Action<float> OnCurrentAsRatioChanged;
         //public event Action<float> OnTotalChanged;
@@ -15,10 +12,10 @@ namespace SlimeRPG.Entities
         private float _current;
         private float _total;
 
-        private void Awake()
+        public void Init(float total, float current)
         {
-            _total = _health.Value;
-            _current = _health.Value;
+            _total = total;
+            _current = current;
         }
 
         public void Add(float value)
