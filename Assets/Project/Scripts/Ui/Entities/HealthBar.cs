@@ -1,4 +1,4 @@
-﻿using SlimeRPG.Battle;
+﻿using SlimeRPG.Entities;
 using UnityEngine;
 using UnityEngine.UI;
 

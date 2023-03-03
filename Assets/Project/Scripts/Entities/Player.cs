@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using SlimeRPG.Battle;
+using UnityEngine;
 
-namespace SlimeRPG.Battle
+namespace SlimeRPG.Entities
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]

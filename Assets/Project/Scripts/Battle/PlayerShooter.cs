@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using SlimeRPG.Data;
+using SlimeRPG.Entities;
 using UnityEngine;
 
 namespace SlimeRPG.Battle
@@ -8,6 +9,7 @@ namespace SlimeRPG.Battle
     {
         [SerializeField] private Projectile _projectile;
         [SerializeField] private Transform _initialPoint;
+        [SerializeField] private EnemyWave _enemyWave;
         [SerializeField] private InitialAbilityValue _atk;
         [SerializeField] private InitialAbilityValue _aspd;
 

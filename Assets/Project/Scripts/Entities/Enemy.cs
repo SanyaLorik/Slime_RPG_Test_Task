@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SlimeRPG.Battle
+namespace SlimeRPG.Entities
 {
     public class Enemy : MonoBehaviour
     {

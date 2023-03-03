@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace SlimeRPG.Battle
+namespace SlimeRPG.Entities
 {
     public class Health : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace SlimeRPG.Battle
 
         public event Action<float> OnCurrentChanged;
         public event Action<float> OnCurrentAsRatioChanged;
-        public event Action<float> OnTotalChanged;
+        //public event Action<float> OnTotalChanged;
 
         private float _current;
         private float _total;
@@ -40,7 +40,7 @@ namespace SlimeRPG.Battle
 
             _current = Mathf.Clamp(_current + value, 0, _total);
             OnCurrentChanged?.Invoke(value);
-            OnCurrentChanged?.Invoke(CalculatedRatio);
+            OnCurrentAsRatioChanged?.Invoke(CalculatedRatio);
         }
     }
 }
