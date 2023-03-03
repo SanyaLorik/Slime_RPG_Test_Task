@@ -13,10 +13,11 @@ namespace SlimeRPG.Entities
         [SerializeField][Min(0)] private int _totalWaves;
         [SerializeField][Min(2)] private int _countFromEnemies;
         [SerializeField][Range(3, 5)] private int _countToEnemies;
-        [SerializeField][Min(0)] private float _delayBeforeWave;
+        [SerializeField][Min(1)] private float _delayBeforeWave;
 
         public event Action OnWaveStarted;
         public event Action OnWaveEnded;
+        public event Action<float> OnDelayed;
 
         private Enemy[] _enemies;
 
@@ -38,6 +39,7 @@ namespace SlimeRPG.Entities
                 await UniTask.WaitUntil(() => enemies.All(i => i == null));
                 OnWaveEnded?.Invoke();
 
+                OnDelayed?.Invoke(_delayBeforeWave);
                 await UniTask.Delay(_delayBeforeWave.Millisecond());
             }
         }
