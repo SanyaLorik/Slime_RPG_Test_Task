@@ -6,20 +6,24 @@ namespace SlimeRPG.Movements
     public class TweenMovement : IState
     {
         private readonly Transform _player;
+        private readonly IStateSwitcher _switcher;
+        private readonly float _duration;
 
-        public TweenMovement(Transform player)
+        public TweenMovement(IStateSwitcher switcher, Transform player, float duration)
         {
+            _switcher = switcher;
             _player = player;
-        }
-
-        public void Disable()
-        {
-            throw new System.NotImplementedException();
+            _duration = duration;
         }
 
         public void Enable()
         {
-            throw new System.NotImplementedException();
+
+        }
+
+        public void Disable()
+        {
+
         }
     }
 }

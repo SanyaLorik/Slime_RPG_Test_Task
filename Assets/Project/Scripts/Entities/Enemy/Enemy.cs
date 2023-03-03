@@ -1,10 +1,14 @@
 using SlimeRPG.Battle;
+using SlimeRPG.Movements;
+using SlimeRPG.State;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace SlimeRPG.Entities
 {
     [RequireComponent(typeof(Collider))]
-    public class Enemy : MonoBehaviour, IDamageable<float>
+    public class Enemy : MonoBehaviour, IStateSwitcher, IDamageable<float>
     {
         [SerializeField] private Health _health;
 
@@ -14,6 +18,8 @@ namespace SlimeRPG.Entities
         [Header("Attacking State")]
         [SerializeField][Min(25)] private float _damage;
         [SerializeField][Min(1)] private float _attackSpeed;
+
+        private IList<IState> _states;
 
         private void OnEnable()
         {
@@ -27,7 +33,17 @@ namespace SlimeRPG.Entities
 
         public void Init(Transform player)
         {
+            _states = new List<IState>()
+            {
+                new TweenMovement(this, player, _duration),
+                new AttackingEnemy(this, player, _damage, _attackSpeed)
+            };
+        }
 
+        public void Switch<T>() where T : IState
+        {
+            IState state = _states.FirstOrDefault(i => i.GetType() == typeof(T));
+            state.Enable();
         }
 
         private void OnChange(float value)
