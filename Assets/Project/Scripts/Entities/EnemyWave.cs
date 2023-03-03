@@ -36,11 +36,11 @@ namespace SlimeRPG.Entities
                 var enemies = Spawn();
                 OnWaveStarted?.Invoke();
 
-                await UniTask.WaitUntil(() => enemies.All(i => i == null));
+                await UniTask.WaitUntil(() => enemies.All(i => i == null), cancellationToken: destroyCancellationToken);
                 OnWaveEnded?.Invoke();
 
                 OnDelayed?.Invoke(_delayBeforeWave);
-                await UniTask.Delay(_delayBeforeWave.Millisecond());
+                await UniTask.Delay(_delayBeforeWave.Millisecond(), cancellationToken: destroyCancellationToken);
             }
         }
 
