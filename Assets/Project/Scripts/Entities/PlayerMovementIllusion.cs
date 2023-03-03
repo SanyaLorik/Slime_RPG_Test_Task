@@ -18,6 +18,7 @@ namespace SlimeRPG.Entities
         {
             _wave.OnWaveStarted += OnMove;
         }
+
         private void OnDisable()
         {
             _wave.OnWaveStarted -= OnMove;
