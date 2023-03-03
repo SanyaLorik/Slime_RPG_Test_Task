@@ -7,14 +7,11 @@ namespace SlimeRPG.Additionals
     {
         public static async UniTask FollowOnCurveAsync(this Transform transform, Vector3 target, AnimationCurve curve, float height, float duration)
         {
-            int millisecond = duration.Millisecond();
             float expandedTime = 0;
             Vector3 initial = transform.position;
 
             do
             {
-                float deltaTime = Time.deltaTime;
-
                 float lerpRatio = expandedTime / duration;
                 float evaluated = curve.Evaluate(lerpRatio);
 
@@ -23,10 +20,10 @@ namespace SlimeRPG.Additionals
 
                 transform.position = position;
 
-                expandedTime += deltaTime;
-                await UniTask.Delay(deltaTime.Millisecond());
+                expandedTime += Time.deltaTime;
+                await UniTask.Delay(Time.deltaTime.Millisecond());
             }
-            while (expandedTime < millisecond);
+            while (expandedTime < duration);
         }
     }
 }
