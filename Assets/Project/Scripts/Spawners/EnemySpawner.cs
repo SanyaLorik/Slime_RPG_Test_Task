@@ -7,13 +7,17 @@ namespace SlimeRPG.Spawners
     {
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private Enemy _prefab;
+        [SerializeField] private Player _player;
 
         public Enemy Spawn()
         {
             int index = Random.Range(0, _spawnPoints.Length);
             Transform point = _spawnPoints[index];
 
-            return Instantiate(_prefab, point);
+            Enemy enemy = Instantiate(_prefab, point);
+            enemy.Init(_player.transform);
+
+            return enemy;
         }
     }
 }

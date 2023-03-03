@@ -8,6 +8,13 @@ namespace SlimeRPG.Entities
     {
         [SerializeField] private Health _health;
 
+        [Header("Movement State")]
+        [SerializeField][Min(1)] private float _duration;
+
+        [Header("Attacking State")]
+        [SerializeField][Min(25)] private float _damage;
+        [SerializeField][Min(1)] private float _attackSpeed;
+
         private void OnEnable()
         {
             _health.OnCurrentChanged += OnChange;
@@ -16,6 +23,11 @@ namespace SlimeRPG.Entities
         private void OnDisable()
         {
             _health.OnCurrentChanged -= OnChange;
+        }
+
+        public void Init(Transform player)
+        {
+
         }
 
         private void OnChange(float value)
