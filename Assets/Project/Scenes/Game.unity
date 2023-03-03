@@ -4670,6 +4670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1482497067}
   - component: {fileID: 1482497071}
+  - component: {fileID: 1482497072}
   - component: {fileID: 1482497069}
   - component: {fileID: 1482497070}
   m_Layer: 0
@@ -4740,6 +4741,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 11400000, guid: 85e1eebb5f3888f4482d8afb246156fc, type: 2}
+--- !u!114 &1482497072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482497066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991dc0ecf4307ed49bc9eae05133a734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 1482497071}
+  _healthRecovery: {fileID: 11400000, guid: 3982803cb1716134087ec209d4011c95, type: 2}
+  _delay: 2
 --- !u!1 &1542712745
 GameObject:
   m_ObjectHideFlags: 0
