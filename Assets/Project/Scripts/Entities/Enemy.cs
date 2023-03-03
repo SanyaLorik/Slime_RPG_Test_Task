@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SlimeRPG.Entities
 {
+    [RequireComponent(typeof(Collider))]
     public class Enemy : MonoBehaviour, IDamageable<float>
     {
         [SerializeField] private Health _health;
@@ -19,6 +20,7 @@ namespace SlimeRPG.Entities
 
         private void OnChange(float value)
         {
+            print(value);
             if (value <= 0)
                 Destroy(gameObject);
         }

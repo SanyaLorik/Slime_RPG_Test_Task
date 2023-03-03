@@ -20,11 +20,17 @@ namespace SlimeRPG.Entities
 
         public void Add(float value)
         {
+            if (value < 0)
+                throw new Exception("Value can not be less than 0.");
+
             Change(value);
         }
 
         public void Reduce(float value)
         {
+            if (value < 0)
+                throw new Exception("Value can not be less than 0.");
+
             Change(-value);
         }
 
@@ -32,11 +38,8 @@ namespace SlimeRPG.Entities
 
         private void Change(float value)
         {
-            if (value < 0)
-                throw new Exception("Value can not be less than 0.");
-
             _current = Mathf.Clamp(_current + value, 0, _total);
-            OnCurrentChanged?.Invoke(value);
+            OnCurrentChanged?.Invoke(_current);
             OnCurrentAsRatioChanged?.Invoke(CalculatedRatio);
         }
     }

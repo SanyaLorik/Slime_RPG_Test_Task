@@ -34,7 +34,7 @@ namespace SlimeRPG.Entities
                 var enemies = Spawn();
                 OnWaveStarted?.Invoke();
 
-                await UniTask.WaitWhile(() => enemies.All(i => i == null));
+                await UniTask.WaitWhile(() => enemies.All(i => i != null));
                 OnWaveEnded?.Invoke();
 
                 await UniTask.Delay(_delayBeforeWave.Millisecond());
