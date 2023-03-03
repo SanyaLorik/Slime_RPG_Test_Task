@@ -1,7 +1,8 @@
 ﻿using SlimeRPG.Entities;
+using SlimeRPG.Ui;
 using UnityEngine;
 
-namespace SlimeRPG.Ui
+namespace SlimeRPG.Spawners
 {
     public class DealingDamageSpawner : MonoBehaviour
     {

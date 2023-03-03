@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using SlimeRPG.Entities;
+using UnityEngine;
 
-namespace SlimeRPG.Entities
+namespace SlimeRPG.Spawners
 {
     public class EnemySpawner : MonoBehaviour
     {
