@@ -6,7 +6,7 @@ namespace SlimeRPG.Entities
     {
         [SerializeField] private Transform[] _spawnPoints;
 
-        private Enemy Spawn()
+        public Enemy Spawn()
         {
             throw new System.Exception();
         }
