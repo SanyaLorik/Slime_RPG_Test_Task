@@ -180,8 +180,12 @@ PrefabInstance:
       objectReference: {fileID: 2708991969561134356}
     - target: {fileID: 5339506830340857588, guid: 274d4941fb4ba8b458e57f1e1b8c3b6b, type: 3}
       propertyPath: m_Name
-      value: Health Bar
+      value: Ui Health
       objectReference: {fileID: 0}
+    - target: {fileID: 5367485099954407208, guid: 274d4941fb4ba8b458e57f1e1b8c3b6b, type: 3}
+      propertyPath: _health
+      value: 
+      objectReference: {fileID: 2708991969561134356}
     - target: {fileID: 9019533640110101671, guid: 274d4941fb4ba8b458e57f1e1b8c3b6b, type: 3}
       propertyPath: m_RootOrder
       value: -1

@@ -7,7 +7,7 @@ namespace SlimeRPG.Entities
     {
         public event Action<float> OnCurrentChanged;
         public event Action<float> OnCurrentAsRatioChanged;
-        public event Action<float> OnDamageDealed;
+        public event Action<float> OnReduced;
         //public event Action<float> OnTotalChanged;
 
         private float _current;
@@ -33,6 +33,7 @@ namespace SlimeRPG.Entities
                 throw new Exception("Value can not be less than 0.");
 
             Change(-value);
+            OnReduced?.Invoke(value);
         }
 
         private float CalculatedRatio => _current / _total;
@@ -41,7 +42,6 @@ namespace SlimeRPG.Entities
         {
             _current = Mathf.Clamp(_current + value, 0, _total);
 
-            OnDamageDealed?.Invoke(value);
             OnCurrentChanged?.Invoke(_current);
             OnCurrentAsRatioChanged?.Invoke(CalculatedRatio);
         }

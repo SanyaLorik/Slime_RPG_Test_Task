@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 namespace SlimeRPG.Ui
@@ -7,13 +8,21 @@ namespace SlimeRPG.Ui
     public class DealingDamageDisplayer : MonoBehaviour
     {
         [SerializeField] private RectTransform _rect;
-        [SerializeField] private TextMeshPro _text;
+        [SerializeField] private TextMeshProUGUI _text;
         [SerializeField][Min(0)] private float _speed;
+        [SerializeField][Min(0)] private float _duration;
+
+        private Tween _tween;
+
+        private void OnDisable()
+        {
+            _tween?.Kill();
+        }
 
         public void Launch(float damage)
         {
             _text.text = damage.ToString();
-
+            _tween = _rect.DOJumpAnchorPos(Vector2.up * _speed, _speed, 1, _duration);
         }
     }
 }

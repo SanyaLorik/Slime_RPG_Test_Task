@@ -11,12 +11,12 @@ namespace SlimeRPG.Ui
 
         private void OnEnable()
         {
-            _health.OnDamageDealed += OnSpawn;
+            _health.OnReduced += OnSpawn;
         }
 
         private void OnDisable()
         {
-            _health.OnDamageDealed -= OnSpawn;
+            _health.OnReduced -= OnSpawn;
         }
 
         private void OnSpawn(float value)
