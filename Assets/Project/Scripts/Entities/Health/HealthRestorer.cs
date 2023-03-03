@@ -1,4 +1,4 @@
-﻿using SlimeRPG.Data;
+using SlimeRPG.Data;
 using UnityEngine;
 
 namespace SlimeRPG.Entities

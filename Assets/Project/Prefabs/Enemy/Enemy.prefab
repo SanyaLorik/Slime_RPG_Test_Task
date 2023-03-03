@@ -166,6 +166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2708991969561134356}
+  _duration: 2
+  _damage: 25
+  _attackSpeed: 2
 --- !u!1001 &2554710556928803684
 PrefabInstance:
   m_ObjectHideFlags: 0

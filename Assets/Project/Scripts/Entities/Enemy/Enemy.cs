@@ -40,8 +40,9 @@ namespace SlimeRPG.Entities
             };
         }
 
-        public void Switch<T>() where T : IState
+        public void Switch<T>(IState old) where T : IState
         {
+            old.Disable();
             IState state = _states.FirstOrDefault(i => i.GetType() == typeof(T));
             state.Enable();
         }
