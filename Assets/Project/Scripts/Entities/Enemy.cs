@@ -20,7 +20,6 @@ namespace SlimeRPG.Entities
 
         private void OnChange(float value)
         {
-            print(value);
             if (value <= 0)
                 Destroy(gameObject);
         }

@@ -31,10 +31,11 @@ namespace SlimeRPG.Entities
         {
             for (int i = 0; i < _totalWaves; i++)
             {
+                Debug.Log($"Wave {i + 1} is started.");
                 var enemies = Spawn();
                 OnWaveStarted?.Invoke();
 
-                await UniTask.WaitWhile(() => enemies.All(i => i != null));
+                await UniTask.WaitUntil(() => enemies.All(i => i == null));
                 OnWaveEnded?.Invoke();
 
                 await UniTask.Delay(_delayBeforeWave.Millisecond());
