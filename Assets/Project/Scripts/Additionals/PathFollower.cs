@@ -24,7 +24,29 @@ namespace SlimeRPG.Additionals
                 await UniTask.Delay(Time.deltaTime.Millisecond());
             }
             while (expandedTime < duration && target != null);
-            //await transform.DOJump(target, height, 1, duration).AsyncWaitForCompletion();
+        }
+
+        public static async UniTaskVoid FollowAlongForwardAsync(this Transform transform, Transform target, float offset, float duration)
+        {
+            float expandedTime = 0;
+            Vector3 initial = transform.position;
+
+            do
+            {
+                float lerpRatio = expandedTime / duration;
+
+                Vector3 final = target.position + Vector3.forward * offset;
+                Vector3 position = Vector3.Lerp(initial, final, lerpRatio);
+
+                if (transform == null)
+                    continue;
+
+                transform.position = position;
+
+                expandedTime += Time.deltaTime;
+                await UniTask.Delay(Time.deltaTime.Millisecond());
+            }
+            while (expandedTime < duration && target != null);
         }
     }
 }

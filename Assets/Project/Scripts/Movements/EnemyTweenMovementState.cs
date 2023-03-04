@@ -1,5 +1,5 @@
-﻿using DG.Tweening;
-using SlimeRPG.Battle;
+﻿using Cysharp.Threading.Tasks;
+using SlimeRPG.Additionals;
 using SlimeRPG.State;
 using UnityEngine;
 
@@ -8,15 +8,14 @@ namespace SlimeRPG.Movements
     public class EnemyTweenMovementState : MonoBehaviour, IState
     {
         [SerializeField][Min(2)] private float _duration;
+        [SerializeField][Min(0)] private float _offsetZ;
 
         private IStateSwitcher _switcher;
         private Transform _player;
 
-        private Tween _tween;
-
         private void OnDisable()
         {
-            _tween?.Kill();
+
         }
 
         public void Init(IStateSwitcher switcher, Transform player)
@@ -27,13 +26,12 @@ namespace SlimeRPG.Movements
 
         public void Enable()
         {
-            float end = _player.position.z - transform.position.z;
-            _tween = transform.DOMoveZ(end, _duration).SetEase(Ease.Linear).OnComplete(() => _switcher.Switch<AttackingEnemyState>(this));
+            transform.FollowAlongForwardAsync(_player, _offsetZ, _duration).Forget();
         }
 
         public void Disable()
         {
-            _tween?.Kill();
+
         }
     }
 }
