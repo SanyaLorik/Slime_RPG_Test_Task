@@ -1,15 +1,14 @@
-using SlimeRPG.Data;
 using UnityEngine;
 
 namespace SlimeRPG.Entities
 {
     public class PlayerHealth : Health
     {
-        [SerializeField] private InitialAbilityValue _health;
+        [SerializeField] private BaseViewModelAbility _ability;
 
         private void Awake()
         {
-            Init(_health.Value, _health.Value);
+            Init(_ability.Value, _ability.Value);
         }
     }
 }

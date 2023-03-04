@@ -2,9 +2,9 @@
 {
     public class AspdViewModelAbility : BaseViewModelAbility
     {
-        public override void Upgrade()
+        protected override void Upgrade()
         {
-            Value += AddingToValueAfterUpgade;
+            Value -= Value * AddingToValueAfterUpgade;
             PurchasePrice += UpgradePriceToPrice;
             Level++;
 

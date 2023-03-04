@@ -5,9 +5,9 @@ namespace SlimeRPG.Ui
 {
     public class AlertNotEnoughPrice : MonoBehaviour
     {
-        [SerializeField] private RectTransform _source;
-        [SerializeField] private RectTransform _initial;
-        [SerializeField] private RectTransform _final;
+        [SerializeField] private Transform _source;
+        [SerializeField] private Transform _initial;
+        [SerializeField] private Transform _final;
         [SerializeField][Min(0)] private float _duration;
 
         private Tween _tween;
@@ -15,16 +15,16 @@ namespace SlimeRPG.Ui
         public void Show()
         {
             float duration = _duration / 2;
-            _source.anchoredPosition = _initial.anchoredPosition;
+            _source.position = _initial.position;
 
             _tween?.Kill();
             _tween = _source
-                .DOAnchorPos(_final.anchoredPosition, duration)
+                .DOMove(_final.position, duration)
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
                     _source
-                        .DOAnchorPos(_initial.anchoredPosition, duration)
+                        .DOMove(_initial.position, duration)
                         .SetEase(Ease.Linear);
                 });
         }

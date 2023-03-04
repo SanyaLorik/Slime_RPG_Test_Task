@@ -63,7 +63,7 @@ namespace SlimeRPG
 
         public int UpgradePriceToPrice { get; protected set; }
 
-        public virtual void Upgrade()
+        protected virtual void Upgrade()
         {
             UpdateView();
         }

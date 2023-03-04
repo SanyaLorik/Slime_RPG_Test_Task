@@ -2,7 +2,7 @@
 {
     public class CommonViewModelAbility : BaseViewModelAbility
     {
-        public override void Upgrade()
+        protected override void Upgrade()
         {
             Value += AddingToValueAfterUpgade;
             PurchasePrice += UpgradePriceToPrice;
