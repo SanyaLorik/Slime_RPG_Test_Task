@@ -50,6 +50,7 @@ namespace SlimeRPG
                 return;
             }
 
+            _wallet.Withdraw(PurchasePrice);
             Upgrade();
         }
 

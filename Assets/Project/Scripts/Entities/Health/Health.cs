@@ -18,6 +18,15 @@ namespace SlimeRPG.Entities
             _current = current;
         }
 
+        public void AddTotal(float value)
+        {
+            if (value < 0)
+                throw new Exception("Value can not be less than 0.");
+
+            _total += value;
+            Change(value);
+        }
+
         public void Add(float value)
         {
             if (value < 0)
