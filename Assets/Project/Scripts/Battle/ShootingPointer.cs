@@ -7,7 +7,7 @@ namespace SlimeRPG.Battle
 {
     public class ShootingPointer : MonoBehaviour
     {
-        [SerializeField] private PlayerShooter _shooter;
+        [SerializeField] private Shooter _shooter;
         [SerializeField] private EnemyWave _wave;
 
         private CancellationTokenSource _tokenSource;
