@@ -39,7 +39,7 @@ namespace SlimeRPG.Additionals
                 Vector3 position = Vector3.Lerp(initial, final, lerpRatio);
 
                 if (transform == null)
-                    continue;
+                    break;
 
                 transform.position = position;
 
