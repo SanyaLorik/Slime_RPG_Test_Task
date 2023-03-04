@@ -12,12 +12,9 @@ namespace SlimeRPG.Entities
     {
         [SerializeField] private Health _health;
 
-        [Header("Movement State")]
-        [SerializeField][Min(1)] private float _duration;
-
-        [Header("Attacking State")]
-        [SerializeField][Min(25)] private float _damage;
-        [SerializeField][Min(1)] private float _attackSpeed;
+        [Header("States")]
+        [SerializeField] private EnemyTweenMovementState _movement;
+        [SerializeField] private AttackingEnemyState _attacking;
 
         private IList<IState> _states;
 
@@ -33,11 +30,16 @@ namespace SlimeRPG.Entities
 
         public void Init(Transform player)
         {
+            _movement.Init(this, player);
+            _attacking.Init(this, player);
+
             _states = new List<IState>()
             {
-                new TweenMovement(this, player, _duration),
-                new AttackingEnemy(this, player, _damage, _attackSpeed)
+               _movement,
+               _attacking
             };
+           
+            _states[0].Enable();
         }
 
         public void Switch<T>(IState old) where T : IState

@@ -10,7 +10,7 @@ namespace SlimeRPG.Battle
         [SerializeField][Min(0)] private float _height;
         [SerializeField][Min(0)] private float _radiusExplosion;
 
-        public async UniTask Launch(Vector3 target, float duration, float damage)
+        public async UniTask Launch(Transform target, float duration, float damage)
         {
             await transform.FollowOnCurveAsync(target, _curve, _height, duration);
             DealDamage(damage);

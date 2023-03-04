@@ -79,7 +79,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _height: 10
-  _radiusExplosion: 0.1
+  _radiusExplosion: 0.5
 --- !u!1 &6272103993250222074
 GameObject:
   m_ObjectHideFlags: 0

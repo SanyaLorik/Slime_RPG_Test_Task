@@ -5,7 +5,7 @@ namespace SlimeRPG.Additionals
 {
     public static class PathFollower
     {
-        public static async UniTask FollowOnCurveAsync(this Transform transform, Vector3 target, AnimationCurve curve, float height, float duration)
+        public static async UniTask FollowOnCurveAsync(this Transform transform, Transform target, AnimationCurve curve, float height, float duration)
         {
             float expandedTime = 0;
             Vector3 initial = transform.position;
@@ -16,14 +16,15 @@ namespace SlimeRPG.Additionals
                 float evaluated = curve.Evaluate(lerpRatio);
 
                 Vector3 offset = new(0f, evaluated * height, 0);
-                Vector3 position = Vector3.Lerp(initial, target, lerpRatio) + offset;
+                Vector3 position = Vector3.Lerp(initial, target.position, lerpRatio) + offset;
 
                 transform.position = position;
 
                 expandedTime += Time.deltaTime;
                 await UniTask.Delay(Time.deltaTime.Millisecond());
             }
-            while (expandedTime < duration);
+            while (expandedTime < duration && target != null);
+            //await transform.DOJump(target, height, 1, duration).AsyncWaitForCompletion();
         }
     }
 }

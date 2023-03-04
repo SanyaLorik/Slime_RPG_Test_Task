@@ -21,7 +21,7 @@ namespace SlimeRPG.Battle
 
         public float CurrentDuration { get; private set; }
 
-        public async UniTask Shoot(Vector3 target)
+        public async UniTask Shoot(Transform target)
         {
             ShowProjectile();
             await _projectile.Launch(target, CurrentDuration, _currentDamage);
