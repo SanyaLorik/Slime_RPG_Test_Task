@@ -2,14 +2,14 @@
 
 namespace SlimeRPG
 {
-    public class HpViewModelAbility : BaseViewModelAbility
+    public class HpViewModelAbility : CommonViewModelAbility
     {
         public event Action<float> OnAddingToTotal;
 
         protected override void Upgrade()
         {
-            base.Upgrade();
             OnAddingToTotal?.Invoke(AddingToValueAfterUpgade);
+            base.Upgrade();
         }
     }
 }

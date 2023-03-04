@@ -13,7 +13,10 @@ namespace SlimeRPG.Entities
 
         private void OnEnable()
         {
-            _ability.OnAddingToTotal += AddTotal;
+            _ability.OnAddingToTotal += (value) =>
+            {
+                AddTotal(value);
+            };
         }
 
         private void OnDisable()
