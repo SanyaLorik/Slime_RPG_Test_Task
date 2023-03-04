@@ -1,5 +1,6 @@
 using SlimeRPG.Battle;
 using SlimeRPG.Data;
+using SlimeRPG.Factories;
 using SlimeRPG.Movements;
 using SlimeRPG.State;
 using System.Collections.Generic;
@@ -21,11 +22,13 @@ namespace SlimeRPG.Entities
 
         private IList<IState> _states;
         private Wallet _wallet;
+        private IViewCoinFactory _coinFactory;
 
         [Inject]
-        private void Construct(Wallet wallet)
+        private void Construct(Wallet wallet, IViewCoinFactory coinFactory)
         {
             _wallet = wallet;
+            _coinFactory = coinFactory;
         }
 
         private void Start()
@@ -63,7 +66,9 @@ namespace SlimeRPG.Entities
             if (value > 0)
                 return;
 
+            _coinFactory.Create(transform);
             _wallet.Add(_price);
+
             Destroy(gameObject);
         }
 
