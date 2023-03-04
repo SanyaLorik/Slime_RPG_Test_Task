@@ -19,8 +19,20 @@ namespace SlimeRPG
 
         public float AddingToValueAfterUpgade { get; private set; }
 
-        public float PurchasePrice { get; private set; }
+        public int PurchasePrice { get; private set; }
 
-        public float UpgradePriceToPrice { get; private set; }
+        public int UpgradePriceToPrice { get; private set; }
+
+        public bool CanUpgrade(Wallet wallet)
+        {
+            return wallet.CanWithdrawed(PurchasePrice);
+        }
+
+        public void Upgrade()
+        {
+            Value += AddingToValueAfterUpgade;
+            PurchasePrice += UpgradePriceToPrice;
+            Level++;
+        }
     }
 }

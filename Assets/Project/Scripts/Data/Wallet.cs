@@ -32,7 +32,7 @@ namespace SlimeRPG.Data
 
         private void Change(int value)
         {
-            _current += value;//
+            _current += value;
             OnChanged.Invoke(_current);
         }
     }

@@ -3548,6 +3548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 970144812}
   - component: {fileID: 970144813}
+  - component: {fileID: 970144814}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -3595,6 +3596,22 @@ MonoBehaviour:
   _level: {fileID: 1773260273}
   _value: {fileID: 41939500}
   _priceBuf: {fileID: 1181184315}
+--- !u!114 &970144814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970144811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b5322bbec7809408974568af873e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: {fileID: 1773260273}
+  _value: {fileID: 41939500}
+  _priceBuf: {fileID: 1181184315}
+  _improve: {fileID: 1911077624}
 --- !u!1 &1056077179
 GameObject:
   m_ObjectHideFlags: 0
@@ -5050,6 +5067,9 @@ MonoBehaviour:
   _initialPoint: {fileID: 1595171644}
   _initialAtk: {fileID: 11400000, guid: f9c3e28e4097ba04a8b13dd5c485a4fc, type: 2}
   _initialAspd: {fileID: 11400000, guid: bd79b61ff5818144c955764af03def12, type: 2}
+  _wallet: {fileID: 1482497079}
+  _viewAtk: {fileID: 970144814}
+  _viewAspd: {fileID: 1542712748}
 --- !u!114 &1482497070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5165,6 +5185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1542712746}
   - component: {fileID: 1542712747}
+  - component: {fileID: 1542712748}
   m_Layer: 0
   m_Name: Attack Speed
   m_TagString: Untagged
@@ -5212,6 +5233,22 @@ MonoBehaviour:
   _level: {fileID: 505942584}
   _value: {fileID: 2109722658}
   _priceBuf: {fileID: 268427037}
+--- !u!114 &1542712748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542712745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b5322bbec7809408974568af873e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: {fileID: 505942584}
+  _value: {fileID: 2109722658}
+  _priceBuf: {fileID: 268427037}
+  _improve: {fileID: 206164407}
 --- !u!1 &1552035669
 GameObject:
   m_ObjectHideFlags: 0

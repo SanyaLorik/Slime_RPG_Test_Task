@@ -23,7 +23,6 @@ namespace SlimeRPG.Battle
         private void OnDisable()
         {
             _tokenSource?.Cancel();
-            print("ne gomofox");
         }
 
         public void Enable()

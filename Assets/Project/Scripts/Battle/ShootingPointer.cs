@@ -42,7 +42,6 @@ namespace SlimeRPG.Battle
             do
             {
                 await _shooter.Shoot(_wave.AliveEnemy.transform);
-                //await UniTask.Delay(_shooter.CurrentDuration.Millisecond(), cancellationToken: token);
             }
             while (token.IsCancellationRequested == false);
         }

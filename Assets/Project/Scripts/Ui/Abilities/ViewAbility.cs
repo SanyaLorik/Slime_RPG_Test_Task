@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace SlimeRPG.Ui
 {
-    public abstract class BaseViewAbility : MonoBehaviour
+    public class ViewAbility : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _level;
         [SerializeField] private TextMeshProUGUI _value;
@@ -18,17 +18,22 @@ namespace SlimeRPG.Ui
             _improve.onClick.AddListener(action.Invoke);
         }
 
-        protected void UpdateLevel(float level)
+        public void RemoveListener(Action action)
+        {
+            _improve.onClick.RemoveListener(action.Invoke);
+        }
+
+        public void UpdateLevel(float level)
         {
             _level.text = level.ToString();
         }
 
-        protected void UpdateValue(float value)
+        public void UpdateValue(float value)
         {
             _value.text = value.ToString();
         }
 
-        protected void UpdatePriceBuf(float priceBuf)
+        public void UpdatePriceBuf(float priceBuf)
         {
             _priceBuf.text = priceBuf.ToString();
         }

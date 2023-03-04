@@ -11,8 +11,8 @@ namespace SlimeRPG.Data
 
         [field: SerializeField][field: Min(0)] public float AddingToValueAfterUpgade { get; private set; }
 
-        [field: SerializeField][field: Min(0)] public float PurchasePrice { get; private set; }
+        [field: SerializeField][field: Min(0)] public int PurchasePrice { get; private set; }
 
-        [field: SerializeField][field: Min(0)] public float UpgradePriceToPrice { get; private set; }
+        [field: SerializeField][field: Min(0)] public int UpgradePriceToPrice { get; private set; }
     }
 }
