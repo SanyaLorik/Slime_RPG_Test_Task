@@ -5048,8 +5048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectile: {fileID: 357145300}
   _initialPoint: {fileID: 1595171644}
-  _atk: {fileID: 11400000, guid: f9c3e28e4097ba04a8b13dd5c485a4fc, type: 2}
-  _aspd: {fileID: 11400000, guid: bd79b61ff5818144c955764af03def12, type: 2}
+  _initialAtk: {fileID: 11400000, guid: f9c3e28e4097ba04a8b13dd5c485a4fc, type: 2}
+  _initialAspd: {fileID: 11400000, guid: bd79b61ff5818144c955764af03def12, type: 2}
 --- !u!114 &1482497070
 MonoBehaviour:
   m_ObjectHideFlags: 0

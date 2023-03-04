@@ -8,23 +8,22 @@ namespace SlimeRPG.Battle
     {
         [SerializeField] private Projectile _projectile;
         [SerializeField] private Transform _initialPoint;
-        [SerializeField] private InitialAbilityValue _atk;
-        [SerializeField] private InitialAbilityValue _aspd;
+        [SerializeField] private InitialAbilityValue _initialAtk;
+        [SerializeField] private InitialAbilityValue _initialAspd;
 
-        private float _currentDamage;
+        private Ability _atk;
+        private Ability _aspd;
 
         private void Awake()
         {
-            _currentDamage = _atk.Value;
-            CurrentDuration = _aspd.Value;
+            _atk = new Ability(_initialAtk);
+            _aspd = new Ability(_initialAspd);
         }
-
-        public float CurrentDuration { get; private set; }
 
         public async UniTask Shoot(Transform target)
         {
             ShowProjectile();
-            await _projectile.Launch(target, CurrentDuration, _currentDamage);
+            await _projectile.Launch(target, _aspd.Value, _atk.Value);
             ReturnToStart();
             HideProjectile();
         }
