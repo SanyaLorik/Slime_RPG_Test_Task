@@ -1,16 +1,16 @@
 ﻿using Cysharp.Threading.Tasks;
 using SlimeRPG.Additionals;
-using SlimeRPG.Spawners;
+using SlimeRPG.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 namespace SlimeRPG.Entities
 {
-    public class EnemyWave : MonoBehaviour
+    public class EnemyWave : MonoBehaviour, IEnemyWave
     {
-        [SerializeField] private EnemySpawner _spawner;
         [SerializeField][Min(0)] private int _totalWaves;
         [SerializeField][Min(2)] private int _countFromEnemies;
         [SerializeField][Range(3, 5)] private int _countToEnemies;
@@ -21,6 +21,13 @@ namespace SlimeRPG.Entities
         public event Action<float> OnDelayed;
 
         private Enemy[] _enemies;
+        private IEnemyFactory _factory;
+
+        [Inject]
+        private void Construct(IEnemyFactory spawner)
+        {
+            _factory = spawner;
+        }
 
         private void Start()
         {
@@ -51,7 +58,7 @@ namespace SlimeRPG.Entities
             _enemies = new Enemy[count];
 
             for (int i = 0; i < count; i++)
-                _enemies[i] = _spawner.Spawn();
+                _enemies[i] = _factory.Create();
 
             return _enemies;
         }

@@ -654,6 +654,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 82342631}
   m_CullTransparentMesh: 1
+--- !u!1 &90730879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90730880}
+  - component: {fileID: 90730881}
+  - component: {fileID: 90730882}
+  m_Layer: 0
+  m_Name: EnemyWaveBinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90730880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90730879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1763171715}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90730881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90730879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc3b347748a1e840b142e8c10d8d26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyWave: {fileID: 90730882}
+--- !u!114 &90730882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90730879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fd3d5ee0643b44fb8a284c02b7f71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalWaves: 5
+  _countFromEnemies: 2
+  _countToEnemies: 5
+  _delayBeforeWave: 2
 --- !u!1 &93648527
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,8 +2350,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 552712704}
-  - component: {fileID: 552712706}
-  - component: {fileID: 552712705}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -2315,42 +2375,6 @@ Transform:
   m_Father: {fileID: 1716049459}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &552712705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552712703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec8f6d1e8c70484fb1df20bdb7dc286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPoints:
-  - {fileID: 2079790334}
-  - {fileID: 937942520}
-  - {fileID: 2058593606}
-  _prefab: {fileID: 3459489588553337135, guid: e0a46a37b02d75b42be83575d1e2c99c, type: 3}
-  _player: {fileID: 1482497076}
-  _wallet: {fileID: 1482497079}
---- !u!114 &552712706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552712703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20fd3d5ee0643b44fb8a284c02b7f71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawner: {fileID: 552712705}
-  _totalWaves: 5
-  _countFromEnemies: 2
-  _countToEnemies: 5
-  _delayBeforeWave: 4
 --- !u!1 &562984856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,6 +2761,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666049325}
   m_CullTransparentMesh: 1
+--- !u!1 &686368185
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686368186}
+  - component: {fileID: 686368187}
+  m_Layer: 0
+  m_Name: PlayerBinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686368186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686368185}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1763171715}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &686368187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686368185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf852ba660d90cd4ebc56f30d9385d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1482497076}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,6 +2900,69 @@ Transform:
   m_Father: {fileID: 1124502844}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &714809271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 714809272}
+  - component: {fileID: 714809274}
+  - component: {fileID: 714809273}
+  m_Layer: 0
+  m_Name: EnemyFactoryBinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &714809272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714809271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1763171715}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &714809273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714809271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68d83add3254ce42ab0b52003cfd1b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPoints:
+  - {fileID: 2079790334}
+  - {fileID: 937942520}
+  - {fileID: 2058593606}
+  _prefab: {fileID: 3459489588553337135, guid: e0a46a37b02d75b42be83575d1e2c99c, type: 3}
+--- !u!114 &714809274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714809271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f700579c2548e4c90426ce4a90167f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyFactory: {fileID: 714809273}
 --- !u!1 &741352106
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,7 +4959,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shooter: {fileID: 1482497080}
-  _wave: {fileID: 552712706}
 --- !u!114 &1482497073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4840,7 +4971,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41e99f9277d7b44cb63d435b9297386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wave: {fileID: 552712706}
   _initial: {fileID: 1634783110}
   _target: {fileID: 915064531}
 --- !u!136 &1482497074
@@ -5932,7 +6062,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 90730880}
+  - {fileID: 714809272}
+  - {fileID: 686368186}
   m_Father: {fileID: 1056077180}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5949,7 +6082,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 90730881}
+  - {fileID: 714809274}
+  - {fileID: 686368187}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:

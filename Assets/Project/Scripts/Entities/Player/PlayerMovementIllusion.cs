@@ -1,15 +1,23 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 namespace SlimeRPG.Entities
 {
     public class PlayerMovementIllusion : MonoBehaviour
     {
-        [SerializeField] private EnemyWave _wave;
         [SerializeField] private Transform _initial;
         [SerializeField] private Transform _target;
 
         private Transform _camera;
+
+        private IEnemyWave _wave;
+
+        [Inject]
+        private void Construct(IEnemyWave wave)
+        {
+            _wave = wave;
+        }
 
         private void Awake()
         {
@@ -20,7 +28,7 @@ namespace SlimeRPG.Entities
         {
             _wave.OnDelayed += OnMove;
         }
-        //
+
         private void OnDisable()
         {
             _wave.OnDelayed -= OnMove;

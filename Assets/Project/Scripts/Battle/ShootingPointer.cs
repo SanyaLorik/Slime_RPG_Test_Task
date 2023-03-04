@@ -2,15 +2,22 @@
 using SlimeRPG.Entities;
 using System.Threading;
 using UnityEngine;
+using Zenject;
 
 namespace SlimeRPG.Battle
 {
     public class ShootingPointer : MonoBehaviour
     {
         [SerializeField] private Shooter _shooter;
-        [SerializeField] private EnemyWave _wave;
 
+        private IEnemyWave _wave;
         private CancellationTokenSource _tokenSource;
+
+        [Inject]
+        private void Construct(IEnemyWave wave)
+        {
+            _wave = wave;
+        }
 
         private void OnEnable()
         {

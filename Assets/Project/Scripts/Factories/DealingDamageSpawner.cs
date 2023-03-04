@@ -2,7 +2,7 @@
 using SlimeRPG.Ui;
 using UnityEngine;
 
-namespace SlimeRPG.Spawners
+namespace SlimeRPG.Factories
 {
     public class DealingDamageSpawner : MonoBehaviour
     {
