@@ -2228,6 +2228,7 @@ MonoBehaviour:
   - {fileID: 2058593606}
   _prefab: {fileID: 3459489588553337135, guid: e0a46a37b02d75b42be83575d1e2c99c, type: 3}
   _player: {fileID: 1482497076}
+  _wallet: {fileID: 1482497079}
 --- !u!114 &552712706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4104,6 +4105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1162805488}
+  - component: {fileID: 1162805489}
   m_Layer: 0
   m_Name: Coins Status
   m_TagString: Untagged
@@ -4133,6 +4135,20 @@ RectTransform:
   m_AnchoredPosition: {x: 116.829346, y: -37.5}
   m_SizeDelta: {x: 233.65869, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1162805489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162805487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8caea8bed247bf478cd1e153f7a2b17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coins: {fileID: 168445620}
+  _wallet: {fileID: 1482497079}
 --- !u!1 &1181184313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,6 +5008,7 @@ GameObject:
   - component: {fileID: 1482497069}
   - component: {fileID: 1482497070}
   - component: {fileID: 1482497073}
+  - component: {fileID: 1482497079}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5126,6 +5143,18 @@ MonoBehaviour:
   _health: {fileID: 1482497077}
   _healthRecovery: {fileID: 11400000, guid: 3982803cb1716134087ec209d4011c95, type: 2}
   _delay: 2
+--- !u!114 &1482497079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482497066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 279450aabdc4fcb41a8a9891e7c5c11e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1542712745
 GameObject:
   m_ObjectHideFlags: 0

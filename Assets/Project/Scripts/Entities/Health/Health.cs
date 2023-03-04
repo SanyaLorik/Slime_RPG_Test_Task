@@ -8,7 +8,6 @@ namespace SlimeRPG.Entities
         public event Action<float> OnCurrentChanged;
         public event Action<float> OnCurrentAsRatioChanged;
         public event Action<float> OnReduced;
-        //public event Action<float> OnTotalChanged;
 
         private float _current;
         private float _total;

@@ -2,6 +2,7 @@
 using SlimeRPG.Additionals;
 using SlimeRPG.Entities;
 using SlimeRPG.State;
+using System.Threading;
 using UnityEngine;
 
 namespace SlimeRPG.Battle
@@ -12,25 +13,34 @@ namespace SlimeRPG.Battle
         [SerializeField][Min(0.5f)] private float _attackSpeed;
 
         private Player _player;
+        private CancellationTokenSource _tokenSource;
 
         public void Init(Player player)
         {
             _player = player;
         }
 
-        public void Enable()
+        private void OnDisable()
         {
-            Attack().Forget();
+            _tokenSource?.Cancel();
+            print("ne gomofox");
         }
 
-        private async UniTaskVoid Attack()
+        public void Enable()
+        {
+            _tokenSource = new CancellationTokenSource();
+            Attack(_tokenSource.Token).Forget();
+        }
+
+        private async UniTaskVoid Attack(CancellationToken token)
         {
             do
             {
+                print("awdawdwa");
                 _player.Damage(_damage);
-                await UniTask.Delay(_attackSpeed.Millisecond());
+                await UniTask.Delay(_attackSpeed.Millisecond(), cancellationToken: token);
             }
-            while (true);
+            while (token.IsCancellationRequested == false);
         }
     }
 }

@@ -1,4 +1,5 @@
 using SlimeRPG.Battle;
+using SlimeRPG.Data;
 using SlimeRPG.Movements;
 using SlimeRPG.State;
 using System.Collections.Generic;
@@ -11,12 +12,14 @@ namespace SlimeRPG.Entities
     public class Enemy : MonoBehaviour, IStateSwitcher, IDamageable<float>
     {
         [SerializeField] private Health _health;
+        [SerializeField][Min(1)] private int _price;
 
         [Header("States")]
         [SerializeField] private EnemyTweenMovementState _movement;
         [SerializeField] private AttackingEnemyState _attacking;
 
         private IList<IState> _states;
+        private Wallet _wallet;
 
         private void OnEnable()
         {
@@ -28,8 +31,10 @@ namespace SlimeRPG.Entities
             _health.OnCurrentChanged -= OnChange;
         }
 
-        public void Init(Player player)
+        public void Init(Player player, Wallet wallet)
         {
+            _wallet = wallet;
+
             _movement.Init(this, player.transform);
             _attacking.Init(player);
 
@@ -50,8 +55,11 @@ namespace SlimeRPG.Entities
 
         private void OnChange(float value)
         {
-            if (value <= 0)
-                Destroy(gameObject);
+            if (value > 0)
+                return;
+
+            _wallet.Add(_price);
+            Destroy(gameObject);
         }
 
         public void Damage(float damage)

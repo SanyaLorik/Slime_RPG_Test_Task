@@ -1,4 +1,5 @@
-﻿using SlimeRPG.Entities;
+﻿using SlimeRPG.Data;
+using SlimeRPG.Entities;
 using UnityEngine;
 
 namespace SlimeRPG.Spawners
@@ -8,6 +9,7 @@ namespace SlimeRPG.Spawners
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private Enemy _prefab;
         [SerializeField] private Player _player;
+        [SerializeField] private Wallet _wallet;
 
         public Enemy Spawn()
         {
@@ -15,7 +17,7 @@ namespace SlimeRPG.Spawners
             Transform point = _spawnPoints[index];
 
             Enemy enemy = Instantiate(_prefab, point);
-            enemy.Init(_player);
+            enemy.Init(_player, _wallet);
 
             return enemy;
         }

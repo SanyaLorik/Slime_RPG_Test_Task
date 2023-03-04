@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2708991969561134356}
+  _price: 2
   _movement: {fileID: 7697204716629688616}
   _attacking: {fileID: -5009263040101866769}
 --- !u!114 &7697204716629688616
