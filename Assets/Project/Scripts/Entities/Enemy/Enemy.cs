@@ -28,10 +28,10 @@ namespace SlimeRPG.Entities
             _health.OnCurrentChanged -= OnChange;
         }
 
-        public void Init(Transform player)
+        public void Init(Player player)
         {
-            _movement.Init(this, player);
-            _attacking.Init(this, player);
+            _movement.Init(this, player.transform);
+            _attacking.Init(player);
 
             _states = new List<IState>()
             {
@@ -42,9 +42,8 @@ namespace SlimeRPG.Entities
             _states[0].Enable();
         }
 
-        public void Switch<T>(IState old) where T : IState
+        public void Switch<T>() where T : IState
         {
-            old.Disable();
             IState state = _states.FirstOrDefault(i => i.GetType() == typeof(T));
             state.Enable();
         }

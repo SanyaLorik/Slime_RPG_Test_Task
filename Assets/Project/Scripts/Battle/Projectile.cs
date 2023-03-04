@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using SlimeRPG.Additionals;
+using SlimeRPG.Entities;
 using UnityEngine;
 
 namespace SlimeRPG.Battle
@@ -24,7 +25,7 @@ namespace SlimeRPG.Battle
 
             foreach (Collider collider in sphere)
             {
-                if (collider.TryGetComponent(out IDamageable<float> damageable) == true)
+                if (collider.TryGetComponent(out Enemy damageable) == true)
                     damageable.Damage(damage);
             }
         }

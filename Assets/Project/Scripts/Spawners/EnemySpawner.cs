@@ -15,7 +15,7 @@ namespace SlimeRPG.Spawners
             Transform point = _spawnPoints[index];
 
             Enemy enemy = Instantiate(_prefab, point);
-            enemy.Init(_player.transform);
+            enemy.Init(_player);
 
             return enemy;
         }

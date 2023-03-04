@@ -1,4 +1,6 @@
-﻿using SlimeRPG.Additionals;
+﻿using Cysharp.Threading.Tasks;
+using SlimeRPG.Additionals;
+using SlimeRPG.Battle;
 using SlimeRPG.State;
 using UnityEngine;
 
@@ -12,11 +14,6 @@ namespace SlimeRPG.Movements
         private IStateSwitcher _switcher;
         private Transform _player;
 
-        private void OnDisable()
-        {
-
-        }
-
         public void Init(IStateSwitcher switcher, Transform player)
         {
             _switcher = switcher;
@@ -25,12 +22,10 @@ namespace SlimeRPG.Movements
 
         public void Enable()
         {
-            transform.FollowAlongForwardAsync(_player, _offsetZ, _duration).Forget();
-        }
-
-        public void Disable()
-        {
-
+            transform
+                .FollowAlongForwardAsync(_player, _offsetZ, _duration)
+                .ContinueWith(() => _switcher.Switch<AttackingEnemyState>())
+                .Forget();
         }
     }
 }

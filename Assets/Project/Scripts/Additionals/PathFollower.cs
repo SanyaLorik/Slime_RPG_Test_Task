@@ -26,7 +26,7 @@ namespace SlimeRPG.Additionals
             while (expandedTime < duration && target != null);
         }
 
-        public static async UniTaskVoid FollowAlongForwardAsync(this Transform transform, Transform target, float offset, float duration)
+        public static async UniTask FollowAlongForwardAsync(this Transform transform, Transform target, float offset, float duration)
         {
             float expandedTime = 0;
             Vector3 initial = transform.position;
