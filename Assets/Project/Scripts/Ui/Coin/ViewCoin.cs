@@ -14,7 +14,11 @@ namespace SlimeRPG.Ui
                 .DOShakePosition(_durationShaking, 20)
                 .OnComplete(() => 
                 {
-                    transform.DOMove(target.position, _durationMovement);
+                    transform.DOMove(target.position, _durationMovement)
+                    .OnComplete(() =>
+                    {
+                        Destroy(gameObject);
+                    });
                 });
         }
     }
