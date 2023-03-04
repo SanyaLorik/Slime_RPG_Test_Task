@@ -19,7 +19,6 @@ namespace SlimeRPG.Movements
         [Inject]
         private void Construct(Player player)
         {
-            Debug.Log(player);
             _player = player.transform;
         }
 

@@ -1,12 +1,20 @@
 ﻿using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace SlimeRPG.Data
 {
     public class ViewWallet : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _coins;
-        [SerializeField] private Wallet _wallet;
+
+        private Wallet _wallet;
+
+        [Inject]
+        private void Construct(Wallet wallet)
+        {
+            _wallet = wallet;
+        }
 
         private void OnEnable()
         {
