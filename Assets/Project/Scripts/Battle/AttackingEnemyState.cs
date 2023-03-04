@@ -25,8 +25,12 @@ namespace SlimeRPG.Battle
 
         private async UniTaskVoid Attack()
         {
-            _player.Damage(_damage);
-            await UniTask.Delay(_attackSpeed.Millisecond());
+            do
+            {
+                _player.Damage(_damage);
+                await UniTask.Delay(_attackSpeed.Millisecond());
+            }
+            while (true);
         }
     }
 }
