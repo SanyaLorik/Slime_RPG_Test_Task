@@ -2,6 +2,7 @@
 using SlimeRPG.Additionals;
 using SlimeRPG.Entities;
 using SlimeRPG.State;
+using System.Threading;
 using UnityEngine;
 using Zenject;
 
@@ -13,6 +14,7 @@ namespace SlimeRPG.Battle
         [SerializeField][Min(0.5f)] private float _attackSpeed;
 
         private Player _player;
+        private CancellationTokenSource _tokenSource;
 
         [Inject]
         private void Construct(Player player)
@@ -20,15 +22,25 @@ namespace SlimeRPG.Battle
             _player = player;
         }
 
-        public void Enable()
+        private void OnDisable()
         {
-            Attack().Forget();
+            _tokenSource?.Cancel();
         }
 
-        private async UniTaskVoid Attack()
+        public void Enable()
         {
-            _player.Damage(_damage);
-            await UniTask.Delay(_attackSpeed.Millisecond());
+            _tokenSource = new CancellationTokenSource();
+            Attack(_tokenSource.Token).Forget();
+        }
+
+        private async UniTaskVoid Attack(CancellationToken token)
+        {
+            do
+            {
+                _player.Damage(_damage);
+                await UniTask.Delay(_attackSpeed.Millisecond(), cancellationToken: token);
+            }
+            while (token.IsCancellationRequested == false);
         }
     }
 }
