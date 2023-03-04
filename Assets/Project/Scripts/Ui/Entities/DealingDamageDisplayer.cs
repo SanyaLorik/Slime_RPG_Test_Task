@@ -17,6 +17,7 @@ namespace SlimeRPG.Ui
         private void OnDisable()
         {
             _tween?.Kill();
+            Destroy(gameObject, _duration);
         }
 
         public void Launch(float damage)
