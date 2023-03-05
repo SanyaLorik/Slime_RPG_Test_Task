@@ -27,7 +27,7 @@ namespace SlimeRPG.Additionals
             while (expandedTime < duration && target != null);
         }
 
-        public static async UniTask<bool> FollowAlongForwardAsync(this Transform transform, Transform target, float offset, float duration)
+        public static async UniTask<bool> FollowAlongForwardAsync(this Transform transform, Vector3 target, float offset, float duration)
         {
             float expandedTime = 0;
             Vector3 initial = transform.position;
@@ -36,7 +36,7 @@ namespace SlimeRPG.Additionals
             {
                 float lerpRatio = expandedTime / duration;
 
-                Vector3 final = target.position + Vector3.forward * offset;
+                Vector3 final = target + Vector3.forward * offset;
                 Vector3 position = Vector3.Lerp(initial, final, lerpRatio);
 
                 if (transform == null)
@@ -47,9 +47,9 @@ namespace SlimeRPG.Additionals
                 expandedTime += Time.deltaTime;
                 await UniTask.Delay(Time.deltaTime.Millisecond());
             }
-            while (expandedTime < duration && target != null);
+            while (expandedTime < duration);
 
-            return expandedTime >= duration && target != null;
+            return expandedTime >= duration;
         }
     }
 }

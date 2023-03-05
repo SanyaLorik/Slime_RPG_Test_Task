@@ -28,8 +28,11 @@ namespace SlimeRPG.Movements
 
         public async void Enable()
         {
+            Vector3 position = _player.position;
+            position.x = transform.position.x;
+
             bool result = await transform
-                .FollowAlongForwardAsync(_player, _offsetZ, _duration);
+                .FollowAlongForwardAsync(position, _offsetZ, _duration);
 
             if (result == true)
                 _switcher.Switch<AttackingEnemyState>();
