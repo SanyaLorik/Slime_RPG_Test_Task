@@ -38,9 +38,11 @@ namespace SlimeRPG.Entities
 
         private async UniTask StartWaveSpawn()
         {
-            for (int i = 0; i < _totalWaves; i++)
+            int count = 1;
+
+            do
             {
-                Debug.Log($"Wave {i + 1} is started.");
+                Debug.Log($"Wave {count} is started.");
                 var enemies = Spawn();
                 OnWaveStarted?.Invoke();
 
@@ -49,7 +51,10 @@ namespace SlimeRPG.Entities
 
                 OnDelayed?.Invoke(_delayBeforeWave);
                 await UniTask.Delay(_delayBeforeWave.Millisecond(), cancellationToken: destroyCancellationToken);
+
+                count++;
             }
+            while (true);
         }
 
         private IEnumerable<Enemy> Spawn()

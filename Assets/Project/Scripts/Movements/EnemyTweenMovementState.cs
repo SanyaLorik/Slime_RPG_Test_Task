@@ -1,5 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
-using SlimeRPG.Additionals;
+﻿using SlimeRPG.Additionals;
 using SlimeRPG.Battle;
 using SlimeRPG.Entities;
 using SlimeRPG.State;
@@ -10,7 +9,7 @@ namespace SlimeRPG.Movements
 {
     public class EnemyTweenMovementState : MonoBehaviour, IState
     {
-        [SerializeField][Min(2)] private float _duration;
+        [SerializeField][Min(1)] private float _duration;
         [SerializeField] private float _offsetZ;
 
         private IStateSwitcher _switcher;

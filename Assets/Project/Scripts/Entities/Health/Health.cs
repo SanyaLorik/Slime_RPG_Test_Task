@@ -8,6 +8,7 @@ namespace SlimeRPG.Entities
         public event Action<float> OnCurrentChanged;
         public event Action<float> OnCurrentAsRatioChanged;
         public event Action<float> OnReduced;
+        public event Action OnDead;
 
         private float _current;
         private float _total;
@@ -52,6 +53,9 @@ namespace SlimeRPG.Entities
 
             OnCurrentChanged?.Invoke(_current);
             OnCurrentAsRatioChanged?.Invoke(CalculatedRatio);
+
+            if (_current <= 0)
+                OnDead?.Invoke();
         }
     }
 }
