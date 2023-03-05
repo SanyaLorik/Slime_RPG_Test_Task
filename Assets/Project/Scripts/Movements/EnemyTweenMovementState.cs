@@ -29,13 +29,6 @@ namespace SlimeRPG.Movements
 
         public async void Enable()
         {
-            /*
-            transform
-                .FollowAlongForwardAsync(_player, _offsetZ, _duration)
-                .ContinueWith(() => _switcher.Switch<AttackingEnemyState>())
-                .Forget();
-            */
-
             bool result = await transform
                 .FollowAlongForwardAsync(_player, _offsetZ, _duration);
 
