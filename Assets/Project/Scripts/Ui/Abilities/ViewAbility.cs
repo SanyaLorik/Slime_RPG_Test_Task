@@ -25,7 +25,7 @@ namespace SlimeRPG.Ui
 
         public void UpdateLevel(float level)
         {
-            _level.text = level.ToString();
+            _level.text = $"Lv {level}";
         }
 
         public void UpdateValue(float value)
