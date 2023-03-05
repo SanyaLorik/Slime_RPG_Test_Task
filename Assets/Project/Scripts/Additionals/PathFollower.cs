@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace SlimeRPG.Additionals
@@ -26,7 +27,7 @@ namespace SlimeRPG.Additionals
             while (expandedTime < duration && target != null);
         }
 
-        public static async UniTask FollowAlongForwardAsync(this Transform transform, Transform target, float offset, float duration)
+        public static async UniTask<bool> FollowAlongForwardAsync(this Transform transform, Transform target, float offset, float duration)
         {
             float expandedTime = 0;
             Vector3 initial = transform.position;
@@ -47,6 +48,8 @@ namespace SlimeRPG.Additionals
                 await UniTask.Delay(Time.deltaTime.Millisecond());
             }
             while (expandedTime < duration && target != null);
+
+            return expandedTime >= duration && target != null;
         }
     }
 }
